@@ -7,5 +7,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 django.setup()
 
 # Run migrations
-call_command('makemigrations', 'mymodels')  # Assuming your models are in 'mymodels'
+# call_command('makemigrations', 'mymodels')
 call_command('migrate')
