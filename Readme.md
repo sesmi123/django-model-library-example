@@ -1,5 +1,11 @@
+# Steps to create a model library and use it in a non-Django project
 
+## Create a Django Model library
+
+```sh
 python -m venv .venv
+
+env\Scripts\activate
 
 pip install django
 
@@ -8,32 +14,36 @@ django-admin startproject myproject
 cd myproject
 
 python manage.py startapp mymodels
+```
 
-create mymodels/models.py
+Create the models and setup Django:
 
-Register the App with the Project
+    Create mymodels/models.py
 
-create migrations
+    Register the App with the Project in settings.py
 
-Create a setup.py File
+    Create migrations
 
-Create a MANIFEST.in File
+Create a package:
 
-pip install setuptools wheel
+    Create a setup.py file
 
-python setup.py sdist bdist_wheel
+    Create a MANIFEST.in file
+
+    pip install setuptools wheel
+
+    python setup.py sdist bdist_wheel
 
 
+# Create a normal Python project to use the Django models library
 
-Create non-django project and install django there as well
+Create a python project and install django there as well
 
-pip install path/to/mymodels-0.1.tar.gz
+Install the models package: `pip install path/to/mymodels-0.1.tar.gz`
 
-create settings.py
+Create settings.py to be used for django
 
-create migrate script
+Create a script to migrate the database using migration scripts in models library and run it `py .\migrate_db.py`
 
-py .\migrate_db.py
-
-create main script to use models
+Create main script to use models from `mymodels.models`
 
